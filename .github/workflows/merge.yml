@@ -28,7 +28,7 @@ jobs:
           node-version: 14.x
 
       - name: Merge records
-        run: node ./merge.mjs
+        run: npx db-man-cli dbs merge
 
       - name: git status
         run: git status; git diff
