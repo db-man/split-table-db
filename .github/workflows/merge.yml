@@ -28,7 +28,7 @@ jobs:
           node-version: 16.x
 
       - name: Merge records
-        run: npx @db-man/cli dbs merge; npx cowsay bbb
+        run: npx @db-man/cli dbs merge
 
       - name: git status
         run: git status; git diff
