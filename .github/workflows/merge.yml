@@ -1,0 +1,44 @@
+name: Merge records to table
+
+concurrency:
+  group: ${{ github.ref }}
+
+# When client modify record files in table dir
+on: 
+  push:
+    paths:
+      - 'dbs/*/*/*.json' # dbs/iam/users/123.json
+
+jobs:
+  merge-records:
+    name: Merge records into table file (table file is modified, repo is dirty now)
+    runs-on: ubuntu-latest
+
+    concurrency:
+      group: merge
+      cancel-in-progress: true
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Merge records
+        run: node ./merge.mjs
+
+      - name: git status
+        run: git status; git diff
+
+      - name: Commit files
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git commit -am "Merge records to table"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
