@@ -1,0 +1,46 @@
+name: Split table file to records
+
+concurrency:
+  group: ${{ github.ref }}
+
+# When client modify table data file in db dir
+on: 
+  push:
+    paths:
+      - 'dbs/*/*.data.json' # dbs/iam/users.data.json
+
+jobs:
+  # Split whole table data file to small record data file (record data file is modified, repo is dirty now)
+  split-table:
+    name: Split table to records
+    runs-on: ubuntu-latest
+
+    concurrency:
+      group: split
+      cancel-in-progress: true
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Split table data file
+        run: node ./split.mjs
+
+      - name: git status
+        run: git status; git diff
+
+      - name: Commit files
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git add .
+          git commit -m "Split table to records"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
