@@ -2,6 +2,7 @@
   "name": "users",
   "columns": [
     {"id": "userId", "name": "User ID", "primary": true},
-    {"id": "name", "name": "Name"}
+    {"id": "name", "name": "Name"},
+    {"id": "age", "name": "Age", "type": "NUMBER"}
   ]
 }]
