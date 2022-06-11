@@ -1,4 +1,7 @@
 {
   "userId": "4",
-  "name": "44"
+  "name": "44",
+  "age": 445566,
+  "active": true,
+  "updatedAt": "2022-06-12 00:29:49"
 }
