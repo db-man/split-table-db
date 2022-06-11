@@ -7,7 +7,7 @@ concurrency:
 on: 
   push:
     paths:
-      - 'dbs/*/*/*.json' # dbs/iam/users/123.json
+      - '*/*/*/*.json' # dbs/iam/users/123.json
 
 jobs:
   merge-records:
