@@ -7,7 +7,7 @@ concurrency:
 on: 
   push:
     paths:
-      - 'dbs/*/*.data.json' # dbs/iam/users.data.json
+      - '*/*/*.data.json' # dbs/iam/users.data.json
 
 jobs:
   # Split whole table data file to small record data file (record data file is modified, repo is dirty now)
