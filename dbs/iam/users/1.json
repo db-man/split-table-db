@@ -1,4 +1,9 @@
 {
   "userId": "1",
-  "name": "foo"
+  "name": "foo",
+  "tags": [
+    "foo",
+    "bar"
+  ],
+  "updatedAt": "2022-06-14 00:39:33"
 }
