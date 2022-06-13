@@ -4,6 +4,7 @@
     {"id": "userId", "name": "User ID", "primary": true},
     {"id": "name", "name": "Name"},
     {"id": "age", "name": "Age", "type": "NUMBER"},
-    {"id": "active", "name": "Active", "type": "BOOL"}
+    {"id": "active", "name": "Active", "type": "BOOL"},
+    {"id": "tags", "name": "Tags", "type": "STRING_ARRAY"}
   ]
 }]
