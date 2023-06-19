@@ -5,5 +5,7 @@
     "foo",
     "bar"
   ],
-  "notes": "testtestesttestesttestesttestesttestesttestesttestesttes"
+  "notes": "testtestesttestesttestesttestesttestesttestesttestesttes",
+  "createdAt": "2022-06-19 12:34:56",
+  "updatedAt": "2022-06-19 12:34:56"
 }
