@@ -1,8 +1,14 @@
 [
-  {
-    "code": "maintainer",
-    "name": "Maintainer",
-    "createdAt": "2023-08-24 23:19:32",
-    "updatedAt": "2023-08-24 23:19:32"
-  }
+ {
+  "code": "developer",
+  "name": "Developer",
+  "createdAt": "2023-08-24 23:31:37",
+  "updatedAt": "2023-08-24 23:31:37"
+ },
+ {
+  "code": "maintainer",
+  "name": "Maintainer",
+  "createdAt": "2023-08-24 23:19:32",
+  "updatedAt": "2023-08-24 23:19:32"
+ }
 ]
