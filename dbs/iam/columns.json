@@ -2,8 +2,14 @@
   {
     "name": "users",
     "columns": [
-      { "id": "userId", "name": "User ID", "primary": true, "filter": true },
-      { "id": "name", "name": "Name", "filter": true },
+      {
+        "id": "userId",
+        "name": "User ID",
+        "type": "NUMBER",
+        "primary": true,
+        "filter": true
+      },
+      { "id": "name", "name": "Name", "type": "STRING", "filter": true },
       {
         "id": "roleCode",
         "name": "Role Code",
