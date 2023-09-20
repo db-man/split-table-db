@@ -17,6 +17,13 @@
         "referenceTable": "roles",
         "enum": ["maintainer", "developer"]
       },
+      {
+        "id": "maleOrFemale",
+        "name": "Male or Female",
+        "type": "STRING",
+        "type:createUpdatePage": "RadioGroup",
+        "enum": ["male", "female"]
+      },
       { "id": "age", "name": "Age", "type": "NUMBER" },
       { "id": "active", "name": "Active", "type": "BOOL" },
       { "id": "tags", "name": "Tags", "type": "STRING_ARRAY" },
