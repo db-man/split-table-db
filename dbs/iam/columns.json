@@ -32,6 +32,21 @@
         "name": "Notes",
         "type": "STRING",
         "type:createUpdatePage": "TextArea"
+      },
+      {
+        "id": "photos",
+        "name": "Photos",
+        "type": "STRING_ARRAY",
+        "type:listPage": [
+          "ImageLinks",
+          "{\"imgs\":[{{#each record.photos}}{{#if @index}},{{/if}}{\"url\":\"{{this}}\",\"imgSrc\":\"{{#replace \".jpg\" \".jpg_400x400.jpg\"}}{{this}}{{/replace}}\"}{{/each}}],\"limit\":3}"
+        ],
+        "type:getPage": [
+          "PhotoList",
+          "{\"photos\":[{{#each record.photos}}{{#if @index}},{{/if}}{\"url\":\"{{this}}\",\"imgSrc\":\"{{this}}_400x400.jpg\"}{{/each}}]}"
+        ],
+        "type:createUpdatePage": "MultiLineInputBox",
+        "filter": true
       }
     ],
     "large": true
