@@ -7,7 +7,11 @@
         "name": "User ID",
         "type": "NUMBER",
         "primary": true,
-        "filter": true
+        "filter": true,
+        "type:randomPage": [
+          "ImageLink",
+          "{\"url\":\"{{record.photos.[0]}}\",\"imgSrc\":\"{{record.photos.[0]}}\"}"
+        ]
       },
       { "id": "name", "name": "Name", "type": "STRING", "filter": true },
       {
