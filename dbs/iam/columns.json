@@ -50,7 +50,8 @@
           "{\"photos\":[{{#each record.photos}}{{#if @index}},{{/if}}{\"url\":\"{{this}}\",\"imgSrc\":\"{{this}}_400x400.jpg\"}{{/each}}]}"
         ],
         "type:createUpdatePage": "MultiLineInputBox",
-        "filter": true
+        "filter": true,
+        "isListPagePhotoViewKey": true
       }
     ],
     "large": true
