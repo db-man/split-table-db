@@ -51,7 +51,7 @@
         ],
         "type:createUpdatePage": "MultiLineInputBox",
         "filter": true,
-        "isListPagePhotoViewKey": true
+        "isListPageImageViewKey": true
       }
     ],
     "large": true
