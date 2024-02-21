@@ -7,13 +7,18 @@
         "name": "User ID",
         "type": "NUMBER",
         "primary": true,
-        "filter": true,
+        "ui:listPage:isFilter": true,
         "type:randomPage": [
           "ImageLink",
           "{\"url\":\"{{record.photos.[0]}}\",\"imgSrc\":\"{{record.photos.[0]}}\"}"
         ]
       },
-      { "id": "name", "name": "Name", "type": "STRING", "filter": true },
+      {
+        "id": "name",
+        "name": "Name",
+        "type": "STRING",
+        "ui:listPage:isFilter": true
+      },
       {
         "id": "roleCode",
         "name": "Role Code",
@@ -30,7 +35,12 @@
       },
       { "id": "age", "name": "Age", "type": "NUMBER" },
       { "id": "active", "name": "Active", "type": "BOOL" },
-      { "id": "tags", "name": "Tags", "type": "STRING_ARRAY" },
+      {
+        "id": "tags",
+        "name": "Tags",
+        "type": "STRING_ARRAY",
+        "ui:listPage:isFilter": true
+      },
       {
         "id": "notes",
         "name": "Notes",
@@ -50,7 +60,7 @@
           "{\"photos\":[{{#each record.photos}}{{#if @index}},{{/if}}{\"url\":\"{{this}}\",\"imgSrc\":\"{{this}}_400x400.jpg\"}{{/each}}]}"
         ],
         "type:createUpdatePage": "MultiLineInputBox",
-        "filter": true,
+        "ui:listPage:isFilter": true,
         "isListPageImageViewKey": true
       }
     ],
