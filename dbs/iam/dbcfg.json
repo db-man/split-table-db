@@ -61,7 +61,7 @@
         ],
         "type:createUpdatePage": "MultiLineInputBox",
         "ui:listPage:isFilter": true,
-        "isListPageImageViewKey": true
+        "ui:listPage:isImageViewKey": true
       }
     ],
     "large": true
