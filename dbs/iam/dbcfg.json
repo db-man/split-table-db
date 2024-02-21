@@ -24,14 +24,14 @@
         "name": "Role Code",
         "type": "STRING",
         "referenceTable": "roles",
-        "enum": ["maintainer", "developer"]
+        "ui:createUpdatePage:enum": ["maintainer", "developer"]
       },
       {
         "id": "maleOrFemale",
         "name": "Male or Female",
         "type": "STRING",
         "type:createUpdatePage": "RadioGroup",
-        "enum": ["male", "female"]
+        "ui:createUpdatePage:enum": ["male", "female"]
       },
       { "id": "age", "name": "Age", "type": "NUMBER" },
       { "id": "active", "name": "Active", "type": "BOOL" },
