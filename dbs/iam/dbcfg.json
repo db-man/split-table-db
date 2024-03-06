@@ -8,7 +8,7 @@
         "type": "NUMBER",
         "primary": true,
         "ui:listPage:isFilter": true,
-        "type:randomPage": [
+        "ui:listPage:randomView": [
           "ImageLink",
           "{\"url\":\"{{record.photos.[0]}}\",\"imgSrc\":\"{{record.photos.[0]}}\"}"
         ]
