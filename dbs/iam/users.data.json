@@ -21,6 +21,12 @@
   ]
  },
  {
+  "maleOrFemale": "male",
+  "userId": 1.3,
+  "createdAt": "2024-03-06 19:44:21",
+  "updatedAt": "2024-03-06 19:44:21"
+ },
+ {
   "userId": "10000",
   "name": "user id 10000",
   "tags": [
