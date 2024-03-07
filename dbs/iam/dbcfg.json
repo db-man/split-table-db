@@ -17,7 +17,8 @@
         "id": "name",
         "name": "Name",
         "type": "STRING",
-        "ui:listPage:isFilter": true
+        "ui:listPage:isFilter": true,
+        "placeholder": "Enter Name"
       },
       {
         "id": "roleCode",
