@@ -4,7 +4,8 @@ concurrency:
   group: ${{ github.ref }}
 
 # When client modify record files in table dir
-on: 
+on:
+  workflow_dispatch: # manually trigger pipeline
   push:
     paths:
       - '*/*/*/*.json' # dbs/iam/users/123.json
