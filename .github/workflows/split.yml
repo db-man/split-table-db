@@ -33,7 +33,10 @@ jobs:
         run: npx @db-man/cli dbs split 
 
       - name: git status
-        run: git status; git diff
+        run: |
+          git status
+          git diff
+          git pull # this will make sure local update to date
 
       - name: Commit files
         run: |
