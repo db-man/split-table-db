@@ -1,5 +1,6 @@
 name: Split table file to records
 
+# when multiple jobs run at the same time, first N pipelines will be cancelled, this may send lots of email (cannot turn off)
 # concurrency:
 #   group: ${{ github.ref }}
 
