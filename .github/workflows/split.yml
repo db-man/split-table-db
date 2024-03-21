@@ -1,11 +1,11 @@
 name: Split table file to records
 
-concurrency:
-  group: ${{ github.ref }}
+# concurrency:
+#   group: ${{ github.ref }}
 
-# When client modify table data file in db dir
-on: 
-  push:
+on:
+  workflow_dispatch: # manually trigger pipeline
+  push: # When client modify table data file in db dir
     paths:
       - '*/*/*.data.json' # dbs/iam/users.data.json
 
@@ -15,9 +15,9 @@ jobs:
     name: Split table to records
     runs-on: ubuntu-latest
 
-    concurrency:
-      group: split
-      cancel-in-progress: true
+    # concurrency:
+    #   group: split
+    #   cancel-in-progress: true
 
     steps:
       - name: Checkout code
@@ -38,9 +38,10 @@ jobs:
         run: |
           git config --local user.name "github-actions[bot]"
           git add .
-          git commit -m "Split table to records"
+          git commit -m "[CI] Split table to records"
       - name: Push changes
         uses: ad-m/github-push-action@master
+        continue-on-error: true # when multiple jobs run at the same time, only the last git push will success
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
