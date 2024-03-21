@@ -35,7 +35,7 @@ jobs:
         run: |
           git status
           git diff
-          git pull # this will make sure local update to date
+          # git pull # this will make sure local update to date
 
       - name: Commit files
         run: |
