@@ -39,7 +39,7 @@ jobs:
           git commit -am "[CI] Merge records to table"
       - name: Push changes
         uses: ad-m/github-push-action@master
+        continue-on-error: true # when multiple jobs run at the same time, only the last git push will success
         with:
-          continue-on-error: true # when multiple jobs run at the same time, only the last git push will success
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
