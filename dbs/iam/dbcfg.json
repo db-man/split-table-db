@@ -32,7 +32,7 @@
         "name": "Male or Female",
         "type": "STRING",
         "type:createUpdatePage": "RadioGroup",
-        "ui:createUpdatePage:enum2": ["male", "female"]
+        "ui:createUpdatePage:enum": ["male", "female"]
       },
       { "id": "age", "name": "Age", "type": "NUMBER" },
       { "id": "active", "name": "Active", "type": "BOOL" },
