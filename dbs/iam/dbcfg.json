@@ -43,12 +43,6 @@
         "ui:listPage:isFilter": true
       },
       {
-        "id": "notes",
-        "name": "Notes",
-        "type": "STRING",
-        "type:createUpdatePage": "TextArea"
-      },
-      {
         "id": "photos",
         "name": "Photos",
         "type": "STRING_ARRAY",
@@ -63,6 +57,12 @@
         "type:createUpdatePage": "MultiLineInputBox",
         "ui:listPage:isFilter": true,
         "ui:listPage:isImageViewKey": true
+      },
+      {
+        "id": "notes",
+        "name": "Notes",
+        "type": "STRING",
+        "type:createUpdatePage": "TextArea"
       }
     ],
     "large": true
