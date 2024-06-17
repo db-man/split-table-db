@@ -36,6 +36,9 @@ jobs:
           git status
           git diff
           # git pull # this will make sure local update to date
+          # check filename length
+          touch $(python -c "print('a'*255)")
+          touch $(python -c "print('a'*256)")
 
       - name: Commit files
         run: |
