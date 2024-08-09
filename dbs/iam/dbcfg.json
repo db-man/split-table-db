@@ -78,5 +78,30 @@
       },
       { "id": "name", "name": "Name", "type": "STRING" }
     ]
+  },
+  {
+    "name": "access_log",
+    "columns": [
+      {
+        "id": "access_url",
+        "name": "Access URL",
+        "type": "STRING",
+        "primary": true
+      },
+      { "id": "access_time", "name": "Access Time", "type": "STRING" },
+      { "id": "user_id", "name": "User ID", "type": "NUMBER" },
+      {
+        "id": "tags",
+        "name": "Tags",
+        "type": "STRING_ARRAY",
+        "ui:listPage:isFilter": true
+      },
+      {
+        "id": "notes",
+        "name": "Notes",
+        "type": "STRING",
+        "type:createUpdatePage": "TextArea"
+      }
+    ]
   }
 ]
