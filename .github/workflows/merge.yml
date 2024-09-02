@@ -43,6 +43,7 @@ jobs:
       - name: Commit files
         run: |
           git config --local user.name "github-actions[bot]"
+          git config --local user.email "db-man-bot@users.noreply.github.com"
           git commit -am "[CI] Merge records to table"
       - name: Push changes
         uses: ad-m/github-push-action@master
