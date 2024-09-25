@@ -1,6 +1,7 @@
 [
   {
     "name": "users",
+    "description": "users table",
     "columns": [
       {
         "id": "userId",
