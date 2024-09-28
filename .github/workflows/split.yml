@@ -4,6 +4,7 @@ name: Split table file to records
 # concurrency:
 #   group: ${{ github.ref }}
 
+# When client modify table data file in db dir
 on:
   workflow_dispatch: # manually trigger pipeline
   push: # When client modify table data file in db dir
