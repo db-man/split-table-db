@@ -31,7 +31,7 @@ jobs:
           node-version: 16.x
 
       - name: Split table data file
-        run: npx @db-man/cli dbs split
+        run: npx @db-man/cli split
 
       - name: git status
         run: |
@@ -45,6 +45,7 @@ jobs:
           git config --local user.email "db-man-bot@users.noreply.github.com"
           git add .
           git commit -m "[CI] Split table to records"
+
       - name: Push changes
         uses: ad-m/github-push-action@master
         # when multiple jobs run at the same time, only last git push will sucess, then other pipelines will fail and send email.

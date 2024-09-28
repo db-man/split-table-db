@@ -29,7 +29,7 @@ jobs:
           node-version: 16.x
 
       - name: Merge records
-        run: npx @db-man/cli dbs merge
+        run: npx @db-man/cli merge
 
       - name: git status
         run: |
@@ -45,6 +45,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git config --local user.email "db-man-bot@users.noreply.github.com"
           git commit -am "[CI] Merge records to table"
+
       - name: Push changes
         uses: ad-m/github-push-action@master
         # when multiple jobs run at the same time, only last git push will sucess, then other pipelines will fail and send email.
