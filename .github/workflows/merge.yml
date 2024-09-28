@@ -4,6 +4,7 @@ name: Merge records to table
 # concurrency:
 #   group: ${{ github.ref }} # github.ref="refs/heads/main"
 
+# When client modify table data file in db dir
 on:
   workflow_dispatch: # manually trigger pipeline
   push: # When client modify table record files in table dir
@@ -11,6 +12,7 @@ on:
       - '*/*/*/*.json' # dbs/iam/users/123.json
 
 jobs:
+  # Merge record data file to whole table data file
   merge-records:
     name: Merge records into table file (table file is modified, repo is dirty now)
     runs-on: ubuntu-latest
