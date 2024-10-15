@@ -1,109 +1,113 @@
-[
-  {
-    "name": "users",
-    "description": "users table",
-    "columns": [
-      {
-        "id": "userId",
-        "name": "User ID",
-        "type": "NUMBER",
-        "primary": true,
-        "ui:listPage:isFilter": true,
-        "ui:listPage:randomView": [
-          "ImageLink",
-          "{\"url\":\"{{record.photos.[0]}}\",\"imgSrc\":\"{{record.photos.[0]}}\"}"
-        ]
-      },
-      {
-        "id": "name",
-        "name": "Name",
-        "type": "STRING",
-        "ui:listPage:isFilter": true,
-        "ui:createUpdatePage:placeholder": "Enter Name"
-      },
-      {
-        "id": "roleCode",
-        "name": "Role Code",
-        "type": "STRING",
-        "referenceTable": "roles",
-        "ui:createUpdatePage:enum": ["maintainer", "developer"]
-      },
-      {
-        "id": "maleOrFemale",
-        "name": "Male or Female",
-        "type": "STRING",
-        "type:createUpdatePage": "RadioGroup",
-        "ui:createUpdatePage:enum": ["male", "female"]
-      },
-      { "id": "age", "name": "Age", "type": "NUMBER" },
-      { "id": "active", "name": "Active", "type": "BOOL" },
-      {
-        "id": "tags",
-        "name": "Tags",
-        "type": "STRING_ARRAY",
-        "ui:listPage:isFilter": true
-      },
-      {
-        "id": "photos",
-        "name": "Photos",
-        "type": "STRING_ARRAY",
-        "type:listPage": [
-          "ImageLinks",
-          "{\"imgs\":[{{#each record.photos}}{{#if @index}},{{/if}}{\"url\":\"{{this}}\",\"imgSrc\":\"{{#replace \".jpg\" \".jpg_400x400.jpg\"}}{{this}}{{/replace}}\"}{{/each}}],\"limit\":3}"
-        ],
-        "type:getPage": [
-          "PhotoList",
-          "{\"photos\":[{{#each record.photos}}{{#if @index}},{{/if}}{\"url\":\"{{this}}\",\"imgSrc\":\"{{this}}_400x400.jpg\"}{{/each}}]}"
-        ],
-        "type:createUpdatePage": "MultiLineInputBox",
-        "ui:listPage:isFilter": true,
-        "ui:listPage:isImageViewKey": true
-      },
-      {
-        "id": "notes",
-        "name": "Notes",
-        "type": "STRING",
-        "type:createUpdatePage": "TextArea",
-        "type:listPage": "HIDE"
-      }
-    ],
-    "large": true
-  },
-  {
-    "name": "roles",
-    "columns": [
-      {
-        "id": "code",
-        "name": "Code",
-        "type": "STRING",
-        "primary": true
-      },
-      { "id": "name", "name": "Name", "type": "STRING" }
-    ]
-  },
-  {
-    "name": "access_log",
-    "columns": [
-      {
-        "id": "access_url",
-        "name": "Access URL",
-        "type": "STRING",
-        "primary": true
-      },
-      { "id": "access_time", "name": "Access Time", "type": "STRING" },
-      { "id": "user_id", "name": "User ID", "type": "NUMBER" },
-      {
-        "id": "tags",
-        "name": "Tags",
-        "type": "STRING_ARRAY",
-        "ui:listPage:isFilter": true
-      },
-      {
-        "id": "notes",
-        "name": "Notes",
-        "type": "STRING",
-        "type:createUpdatePage": "TextArea"
-      }
-    ]
-  }
-]
+{
+  "name": "iam",
+  "description": "iam database",
+  "tables": [
+    {
+      "name": "users",
+      "description": "users table",
+      "columns": [
+        {
+          "id": "userId",
+          "name": "User ID",
+          "type": "NUMBER",
+          "primary": true,
+          "ui:listPage:isFilter": true,
+          "ui:listPage:randomView": [
+            "ImageLink",
+            "{\"url\":\"{{record.photos.[0]}}\",\"imgSrc\":\"{{record.photos.[0]}}\"}"
+          ]
+        },
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "STRING",
+          "ui:listPage:isFilter": true,
+          "ui:createUpdatePage:placeholder": "Enter Name"
+        },
+        {
+          "id": "roleCode",
+          "name": "Role Code",
+          "type": "STRING",
+          "referenceTable": "roles",
+          "ui:createUpdatePage:enum": ["maintainer", "developer"]
+        },
+        {
+          "id": "maleOrFemale",
+          "name": "Male or Female",
+          "type": "STRING",
+          "type:createUpdatePage": "RadioGroup",
+          "ui:createUpdatePage:enum": ["male", "female"]
+        },
+        { "id": "age", "name": "Age", "type": "NUMBER" },
+        { "id": "active", "name": "Active", "type": "BOOL" },
+        {
+          "id": "tags",
+          "name": "Tags",
+          "type": "STRING_ARRAY",
+          "ui:listPage:isFilter": true
+        },
+        {
+          "id": "photos",
+          "name": "Photos",
+          "type": "STRING_ARRAY",
+          "type:listPage": [
+            "ImageLinks",
+            "{\"imgs\":[{{#each record.photos}}{{#if @index}},{{/if}}{\"url\":\"{{this}}\",\"imgSrc\":\"{{#replace \".jpg\" \".jpg_400x400.jpg\"}}{{this}}{{/replace}}\"}{{/each}}],\"limit\":3}"
+          ],
+          "type:getPage": [
+            "PhotoList",
+            "{\"photos\":[{{#each record.photos}}{{#if @index}},{{/if}}{\"url\":\"{{this}}\",\"imgSrc\":\"{{this}}_400x400.jpg\"}{{/each}}]}"
+          ],
+          "type:createUpdatePage": "MultiLineInputBox",
+          "ui:listPage:isFilter": true,
+          "ui:listPage:isImageViewKey": true
+        },
+        {
+          "id": "notes",
+          "name": "Notes",
+          "type": "STRING",
+          "type:createUpdatePage": "TextArea",
+          "type:listPage": "HIDE"
+        }
+      ],
+      "large": true
+    },
+    {
+      "name": "roles",
+      "columns": [
+        {
+          "id": "code",
+          "name": "Code",
+          "type": "STRING",
+          "primary": true
+        },
+        { "id": "name", "name": "Name", "type": "STRING" }
+      ]
+    },
+    {
+      "name": "access_log",
+      "columns": [
+        {
+          "id": "access_url",
+          "name": "Access URL",
+          "type": "STRING",
+          "primary": true
+        },
+        { "id": "access_time", "name": "Access Time", "type": "STRING" },
+        { "id": "user_id", "name": "User ID", "type": "NUMBER" },
+        {
+          "id": "tags",
+          "name": "Tags",
+          "type": "STRING_ARRAY",
+          "ui:listPage:isFilter": true
+        },
+        {
+          "id": "notes",
+          "name": "Notes",
+          "type": "STRING",
+          "type:createUpdatePage": "TextArea"
+        }
+      ]
+    }
+  ]
+}
