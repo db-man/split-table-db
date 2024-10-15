@@ -63,7 +63,8 @@
         "id": "notes",
         "name": "Notes",
         "type": "STRING",
-        "type:createUpdatePage": "TextArea"
+        "type:createUpdatePage": "TextArea",
+        "type:listPage": "HIDE"
       }
     ],
     "large": true
