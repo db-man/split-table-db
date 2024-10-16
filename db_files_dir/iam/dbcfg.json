@@ -1,6 +1,13 @@
 {
   "name": "iam",
   "description": "iam database",
+  "views": [
+    {
+      "name": "roles_users_count",
+      "description": "The count of users for each role",
+      "query": "const rolesUserCountRow = tablesRows['iam/roles'].map((role) => {\n  const users = tablesRows['iam/users'].filter((user) => user.roleCode === role.code);\n  return {\n    role_code: role.code,\n    user_count: users.length,\n  };\n});\nconsole.log('rolesUserCountRow:', rolesUserCountRow);\nreturn rolesUserCountRow;"
+    }
+  ],
   "tables": [
     {
       "name": "users",
