@@ -1,0 +1,4 @@
+# <repo_path>/<db_name>/<table_name>/<single_record>.json
+*/*/*/*.json
+# <repo_path>/<db_name>/<table_data>.data.json
+*/*/*.data.json
