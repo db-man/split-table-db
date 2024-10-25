@@ -1,3 +1,4 @@
 {
-  "repoPath": "db_files_dir"
+  "repoPath": "db_files_dir",
+  "dbModes": ["split-table"]
 }
