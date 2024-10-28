@@ -44,6 +44,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git config --local user.email "db-man-bot@users.noreply.github.com"
           git commit -am "[CI] Split table to records"
+          git status
 
       - name: Push changes
         uses: ad-m/github-push-action@master
