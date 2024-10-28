@@ -1,7 +1,17 @@
 {
   "userId": "1",
   "name": "foo23456",
-  "tags": ["foo", "bar", "a", "b", "c", "d", "e", "f2", "todo"],
+  "tags": [
+    "foo",
+    "bar",
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f2",
+    "todo"
+  ],
   "updatedAt": "2024-04-08 22:45:52",
   "notes": "1test2\n12311",
   "maleOrFemale": "female",
