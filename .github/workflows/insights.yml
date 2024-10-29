@@ -29,19 +29,19 @@ jobs:
       - name: Generate insights
         run: |
           git --no-pager log --follow --numstat --pretty="%H %ad" --date=short -- db_files_dir/iam/users.data.json > db_files_dir/iam/users.insights.gitlog
-
-      - name: git status
-        run: |
+          # check status
           git status
           git diff
-          # git pull # this will make sure local update to date
 
       - name: Commit files
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "db-man-bot@users.noreply.github.com"
-          git add .
-          git commit -m "[CI] Generate git log for table"
+          # if there is no change, no need to commit
+          if [[ -n $(git status --porcelain) ]]; then
+            git add .
+            git commit -m "[CI] Generate git log for table"
+          fi
 
       - name: Push changes
         uses: ad-m/github-push-action@master
