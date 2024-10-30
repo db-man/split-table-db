@@ -40,7 +40,7 @@ jobs:
           echo $GITHUB_SHA
 
       - name: Merge records
-        run: npx @db-man/cli merge
+        run: npx @db-man/cli mergeV2 $GITHUB_SHA
 
       - name: git status
         run: |
