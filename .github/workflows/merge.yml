@@ -30,6 +30,15 @@ jobs:
         with:
           node-version: 16.x
 
+      - name: debug
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo "Show GitHub context"
+          echo "$GITHUB_CONTEXT"
+          echo "show GITHUB_SHA"
+          echo $GITHUB_SHA
+
       - name: Merge records
         run: npx @db-man/cli merge
 
