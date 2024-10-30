@@ -38,6 +38,7 @@ jobs:
           echo "$GITHUB_CONTEXT"
           echo "show GITHUB_SHA"
           echo $GITHUB_SHA
+          git diff-tree --no-commit-id --name-only -r $GITHUB_SHA
 
       - name: Merge records
         run: npx @db-man/cli mergeV2 $GITHUB_SHA
