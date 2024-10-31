@@ -25,32 +25,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          fetch-depth: 2
+          fetch-depth: 2 # `git diff-tree` (used in `@db-man/cli mergeV2`) need to compare HEAD and HEAD~1, so need to fetch 2 commits
 
       - name: Install Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 16.x
-
-      - name: debug
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: |
-          echo "Show GitHub context"
-          echo "$GITHUB_CONTEXT"
-          echo "show GITHUB_SHA"
-          echo $GITHUB_SHA
-          echo "===================================="
-          echo "show latest commit - start"
-          # git diff-tree --no-commit-id --name-only -r $GITHUB_SHA
-          git diff-tree -r $GITHUB_SHA
-          echo "show latest commit - end"
-          echo "===================================="
-          echo "show most recent log - start"
-          git --no-pager log -10
-          echo "show most recent log - end"
-          echo "===================================="
-          
+          node-version: 16.x          
 
       - name: Merge records
         run: npx @db-man/cli mergeV2 $GITHUB_SHA
