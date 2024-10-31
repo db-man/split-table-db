@@ -40,7 +40,8 @@ jobs:
           echo $GITHUB_SHA
           echo "===================================="
           echo "show latest commit - start"
-          git diff-tree --no-commit-id --name-only -r $GITHUB_SHA
+          # git diff-tree --no-commit-id --name-only -r $GITHUB_SHA
+          git diff-tree -r $GITHUB_SHA
           echo "show latest commit - end"
           echo "===================================="
           echo "show most recent log - start"
