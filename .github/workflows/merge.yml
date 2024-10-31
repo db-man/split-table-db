@@ -25,7 +25,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          fetch-depth: 2 # `git diff-tree` (used in `@db-man/cli mergeV2`) need to compare HEAD and HEAD~1, so need to fetch 2 commits
+          fetch-depth: 2 # `git diff-tree` (used in `@db-man/cli mergeUpdatedTables`) need to compare HEAD and HEAD~1, so need to fetch 2 commits
 
       - name: Install Node.js
         uses: actions/setup-node@v1
@@ -33,7 +33,7 @@ jobs:
           node-version: 16.x          
 
       - name: Merge records
-        run: npx @db-man/cli mergeV2 $GITHUB_SHA
+        run: npx @db-man/cli mergeUpdatedTables $GITHUB_SHA
 
       - name: git status
         run: |
