@@ -38,15 +38,19 @@ jobs:
           echo "$GITHUB_CONTEXT"
           echo "show GITHUB_SHA"
           echo $GITHUB_SHA
+          echo "===================================="
           echo "show latest commit - start"
           git diff-tree --no-commit-id --name-only -r $GITHUB_SHA
           echo "show latest commit - end"
-          echo "show debug commit - start"
-          git diff-tree --no-commit-id --name-only -r ff89efa2baba885fb751a89cd1bc198ea8265079
-          echo "show debug commit - end"
+          echo "===================================="
           echo "show most recent log - start"
           git --no-pager log -10
           echo "show most recent log - end"
+          echo "===================================="
+          echo "show debug commit - start"
+          git diff-tree --no-commit-id --name-only -r ff89efa2baba885fb751a89cd1bc198ea8265079
+          echo "show debug commit - end"
+          
 
       - name: Merge records
         run: npx @db-man/cli mergeV2 $GITHUB_SHA
