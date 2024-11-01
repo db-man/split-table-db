@@ -32,9 +32,12 @@ jobs:
         with:
           node-version: 16.x          
 
-      - name: Merge records
+      # Merge updated record files (by SHA) to the table files
+      # Only tables which has updated record files will be merged
+      - name: Merge records to tables
         run: npx @db-man/cli mergeUpdatedTables $GITHUB_SHA
 
+      # Debug: check which table files are modified
       - name: git status
         run: |
           git status
