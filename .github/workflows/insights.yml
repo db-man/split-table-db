@@ -16,7 +16,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          fetch-depth: 0 # fetch all history so that git log can get all history
+          fetch-depth: 0 # fetch all history so that git log (in @db-man/cli generateInsightsForAllDbTables) can get all history
 
       - name: Install Node.js
         uses: actions/setup-node@v1
@@ -28,7 +28,8 @@ jobs:
 
       - name: Generate insights
         run: |
-          git --no-pager log --follow --numstat --pretty="%H %ad" --date=short -- db_files_dir/iam/users.data.json > db_files_dir/iam/users.insights.gitlog
+          # git --no-pager log --follow --numstat --pretty="%H %ad" --date=short -- db_files_dir/iam/users.data.json > db_files_dir/iam/users.insights.gitlog
+          npx @db-man/cli generateInsightsForAllDbTables
           # check status
           git status
           git diff
