@@ -18,6 +18,7 @@
           "name": "User ID",
           "type": "NUMBER",
           "primary": true,
+          "description": "An unique user ID",
           "ui:listPage:isFilter": true,
           "ui:listPage:randomView": [
             "ImageLink",
@@ -28,6 +29,7 @@
           "id": "name",
           "name": "Name",
           "type": "STRING",
+          "description": "The name of the user",
           "ui:listPage:isFilter": true,
           "ui:createUpdatePage:placeholder": "Enter Name"
         },
@@ -35,6 +37,7 @@
           "id": "roleCode",
           "name": "Role Code",
           "type": "STRING",
+          "description": "The role code of the user",
           "referenceTable": "roles",
           "ui:createUpdatePage:enum": ["maintainer", "developer"]
         },
@@ -42,6 +45,7 @@
           "id": "maleOrFemale",
           "name": "Male or Female",
           "type": "STRING",
+          "description": "Male or Female of the user",
           "type:createUpdatePage": "RadioGroup",
           "ui:createUpdatePage:enum": ["male", "female"]
         },
@@ -57,6 +61,7 @@
           "id": "photos",
           "name": "Photos",
           "type": "STRING_ARRAY",
+          "description": "The photos of the user",
           "type:listPage": [
             "ImageLinks",
             "{\"imgs\":[{{#each record.photos}}{{#if @index}},{{/if}}{\"url\":\"{{this}}\",\"imgSrc\":\"{{#replace \".jpg\" \".jpg_400x400.jpg\"}}{{this}}{{/replace}}\"}{{/each}}],\"limit\":3}"
@@ -98,10 +103,21 @@
           "id": "access_url",
           "name": "Access URL",
           "type": "STRING",
-          "primary": true
+          "primary": true,
+          "description": "The URL of the access"
         },
-        { "id": "access_time", "name": "Access Time", "type": "STRING" },
-        { "id": "user_id", "name": "User ID", "type": "NUMBER" },
+        {
+          "id": "access_time",
+          "name": "Access Time",
+          "type": "STRING",
+          "description": "The time of the access"
+        },
+        {
+          "id": "user_id",
+          "name": "User ID",
+          "type": "NUMBER",
+          "description": "The user ID of who access the URL"
+        },
         {
           "id": "tags",
           "name": "Tags",
