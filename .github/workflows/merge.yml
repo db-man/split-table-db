@@ -12,12 +12,6 @@ on:
       - '*/*/*/*.json' # dbs/iam/users/123.json
 
 jobs:
-  call-reusable-workflow:
-    uses: db-man/db-man/.github/workflows/reusable-workflow.yml@main
-    with:
-      example-input: 'Hello, reusable workflow!'
-    secrets:
-      example-secret: 'Hello, secret!'
   # Merge record data file to whole table data file
   merge-records:
     name: Merge records into table file (table file is modified, repo is dirty now)
