@@ -9,50 +9,8 @@ on:
   workflow_dispatch: # manually trigger pipeline
   push: # When client modify table data file in db dir
     paths:
-      - '*/*/*.data.json' # dbs/iam/users.data.json
+      - "*/*/*.data.json" # dbs/iam/users.data.json
 
 jobs:
-  # Split whole table data file to small record data file (record data file is modified, repo is dirty now)
-  split-table:
-    name: Split table to records
-    runs-on: ubuntu-latest
-
-    # concurrency:
-    #   group: split
-    #   cancel-in-progress: true
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Install Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: 16.x
-
-      - name: Split table data file
-        run: npx @db-man/cli split
-
-      - name: git status
-        run: |
-          git status
-          git diff
-          git pull # this will make sure local update to date
-
-      - name: Commit files
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git status
-          git add .
-          git status
-          git commit -m "[CI] Split table to records"
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        # when multiple jobs run at the same time, only last git push will sucess, then other pipelines will fail and send email.
-        # to prevent get lots of email notification, use `continue-on-error` to make pipeline success even the git push failed.
-        continue-on-error: true
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+  call-split-reusable-workflow:
+    uses: db-man/db-man/.github/workflows/split-reusable-workflow.yml@main
