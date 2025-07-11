@@ -1,0 +1,8 @@
+name: Validate the db tables
+
+on:
+  workflow_dispatch: # manually trigger pipeline
+
+jobs:
+  call-validate-reusable-workflow:
+    uses: db-man/db-man/.github/workflows/validate-reusable-workflow.yml@main
