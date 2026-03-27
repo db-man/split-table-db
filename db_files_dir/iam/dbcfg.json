@@ -39,7 +39,10 @@
           "type": "STRING",
           "description": "The role code of the user",
           "referenceTable": "roles",
-          "ui:createUpdatePage:enum": ["maintainer", "developer"]
+          "ui:createUpdatePage:enum": [
+            "maintainer",
+            "developer"
+          ]
         },
         {
           "id": "maleOrFemale",
@@ -47,10 +50,21 @@
           "type": "STRING",
           "description": "Male or Female of the user",
           "type:createUpdatePage": "RadioGroup",
-          "ui:createUpdatePage:enum": ["male", "female"]
+          "ui:createUpdatePage:enum": [
+            "male",
+            "female"
+          ]
         },
-        { "id": "age", "name": "Age", "type": "NUMBER" },
-        { "id": "active", "name": "Active", "type": "BOOL" },
+        {
+          "id": "age",
+          "name": "Age",
+          "type": "NUMBER"
+        },
+        {
+          "id": "active",
+          "name": "Active",
+          "type": "BOOL"
+        },
         {
           "id": "tags",
           "name": "Tags",
@@ -80,6 +94,13 @@
           "type": "STRING",
           "type:createUpdatePage": "TextArea",
           "type:listPage": "HIDE"
+        },
+        {
+          "id": "this_field_will_be_hidden",
+          "name": "This field will be hidden in Create/Update/List page",
+          "type": "STRING",
+          "ui:createUpdatePage:visible": false,
+          "type:listPage": "HIDE"
         }
       ],
       "large": true
@@ -93,7 +114,11 @@
           "type": "STRING",
           "primary": true
         },
-        { "id": "name", "name": "Name", "type": "STRING" }
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "STRING"
+        }
       ]
     },
     {
