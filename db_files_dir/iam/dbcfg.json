@@ -99,7 +99,7 @@
           "id": "this_field_will_be_hidden",
           "name": "This field will be hidden in Create/Update/List page",
           "type": "STRING",
-          "ui:createUpdatePage:visible": false,
+          "type:createUpdatePage": "HIDE",
           "type:listPage": "HIDE"
         }
       ],
