@@ -2,6 +2,9 @@
   "userId": 1744820403529,
   "name": "Test user 2",
   "createdAt": "2025-04-17 00:20:03",
-  "updatedAt": "2026-07-04 00:44:45",
-  "maleOrFemale": "male"
+  "updatedAt": "2026-07-06 23:58:19",
+  "maleOrFemale": "male",
+  "tags": [
+    "bar"
+  ]
 }
