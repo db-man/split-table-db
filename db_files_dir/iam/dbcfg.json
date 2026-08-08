@@ -10,7 +10,7 @@
     {
       "name": "role_count",
       "description": "The count of all roles",
-      "query": "query_file:iam/__views__/role_count.js"
+      "query": "query_file:role_count.js"
     }
   ],
   "tables": [
