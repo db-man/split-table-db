@@ -6,6 +6,11 @@
       "name": "roles_users_count",
       "description": "The count of users for each role",
       "query": "const rolesUserCountRow = tablesRows['iam/roles'].map((role) => {\n  const users = tablesRows['iam/users'].filter((user) => user.roleCode === role.code);\n  return {\n    role_code: role.code,\n    user_count: users.length,\n  };\n});\nconsole.log('rolesUserCountRow:', rolesUserCountRow);\nreturn rolesUserCountRow;"
+    },
+    {
+      "name": "role_count",
+      "description": "The count of all roles",
+      "query": "query_file:iam/__views__/role_count.js"
     }
   ],
   "tables": [
@@ -39,10 +44,7 @@
           "type": "STRING",
           "description": "The role code of the user",
           "referenceTable": "roles",
-          "ui:createUpdatePage:enum": [
-            "maintainer",
-            "developer"
-          ]
+          "ui:createUpdatePage:enum": ["maintainer", "developer"]
         },
         {
           "id": "maleOrFemale",
@@ -50,10 +52,7 @@
           "type": "STRING",
           "description": "Male or Female of the user",
           "type:createUpdatePage": "RadioGroup",
-          "ui:createUpdatePage:enum": [
-            "male",
-            "female"
-          ]
+          "ui:createUpdatePage:enum": ["male", "female"]
         },
         {
           "id": "age",
