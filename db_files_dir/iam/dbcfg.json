@@ -88,6 +88,20 @@
           "ui:listPage:isImageViewKey": true
         },
         {
+          "id": "personal_website_name",
+          "name": "Personal Website Name",
+          "type": "STRING"
+        },
+        {
+          "id": "personal_website_url",
+          "name": "Personal Website URL",
+          "type": "STRING",
+          "type:listPage": [
+            "Link",
+            "{\"href\":\"{{record.personal_website_url}}\",\"text\":\"{{record.personal_website_name}}\"}"
+          ]
+        },
+        {
           "id": "notes",
           "name": "Notes",
           "type": "STRING",
