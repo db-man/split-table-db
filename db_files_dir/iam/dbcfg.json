@@ -98,7 +98,7 @@
           "type": "STRING",
           "type:listPage": [
             "Link",
-            "{\"href\":\"{{record.personal_website_url}}\",\"text\":\"{{record.personal_website_name}}\"}"
+            "{\"href\":\"{{{record.personal_website_url}}}\",\"text\":\"{{record.personal_website_name}}\"}"
           ]
         },
         {
