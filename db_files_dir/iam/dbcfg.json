@@ -5,7 +5,7 @@
     {
       "name": "roles_users_count",
       "description": "The count of users for each role",
-      "query": "const rolesUserCountRow = tablesRows['iam/roles'].map((role) => {\n  const users = tablesRows['iam/users'].filter((user) => user.roleCode === role.code);\n  return {\n    role_code: role.code,\n    user_count: users.length,\n  };\n});\nconsole.log('rolesUserCountRow:', rolesUserCountRow);\nreturn rolesUserCountRow;"
+      "query": "const rolesUserCountRow = tablesRows['iam/roles'].map((role) => {\n  const users = tablesRows['iam/users'].filter((user) => user.roleCode === role.code);\n  return {\n    role_code: role.code,\n    role_name: role.name,\n    user_count: users.length\n  };\n});\n\nreturn rolesUserCountRow;"
     },
     {
       "name": "role_count",
@@ -23,25 +23,36 @@
           "name": "User ID",
           "type": "NUMBER",
           "primary": true,
-          "description": "An unique user ID"
+          "description": "An unique user ID",
+          "ui:listPage:isFilter": true,
+          "ui:listPage:randomView": [
+            "ImageLink",
+            "{\"url\":\"{{record.photos.[0]}}\",\"imgSrc\":\"{{record.photos.[0]}}\"}"
+          ]
         },
         {
           "id": "name",
           "name": "Name",
           "type": "STRING",
-          "description": "The name of the user"
+          "description": "The name of the user",
+          "ui:listPage:isFilter": true,
+          "ui:createUpdatePage:placeholder": "Enter Name"
         },
         {
           "id": "roleCode",
           "name": "Role Code",
           "type": "STRING",
-          "description": "The role code of the user"
+          "description": "The role code of the user",
+          "referenceTable": "roles",
+          "ui:createUpdatePage:enum": ["maintainer", "developer"]
         },
         {
           "id": "maleOrFemale",
           "name": "Male or Female",
           "type": "STRING",
-          "description": "Male or Female of the user"
+          "description": "Male or Female of the user",
+          "type:createUpdatePage": "RadioGroup",
+          "ui:createUpdatePage:enum": ["male", "female"]
         },
         {
           "id": "age",
@@ -56,13 +67,25 @@
         {
           "id": "tags",
           "name": "Tags",
-          "type": "STRING_ARRAY"
+          "type": "STRING_ARRAY",
+          "ui:listPage:isFilter": true
         },
         {
           "id": "photos",
           "name": "Photos",
           "type": "STRING_ARRAY",
-          "description": "The photos of the user"
+          "description": "The photos of the user",
+          "type:listPage": [
+            "ImageLinks",
+            "{\"imgs\":[{{#each record.photos}}{{#if @index}},{{/if}}{\"url\":\"{{this}}\",\"imgSrc\":\"{{#replace \".jpg\" \".jpg_400x400.jpg\"}}{{this}}{{/replace}}\"}{{/each}}],\"limit\":3}"
+          ],
+          "type:getPage": [
+            "PhotoList",
+            "{\"photos\":[{{#each record.photos}}{{#if @index}},{{/if}}{\"url\":\"{{this}}\",\"imgSrc\":\"{{this}}_400x400.jpg\"}{{/each}}]}"
+          ],
+          "type:createUpdatePage": "MultiLineInputBox",
+          "ui:listPage:isFilter": true,
+          "ui:listPage:isImageViewKey": true
         },
         {
           "id": "personal_website_name",
@@ -72,17 +95,25 @@
         {
           "id": "personal_website_url",
           "name": "Personal Website URL",
-          "type": "STRING"
+          "type": "STRING",
+          "type:listPage": [
+            "Link",
+            "{\"href\":\"{{{record.personal_website_url}}}\",\"text\":\"{{record.personal_website_name}}\"}"
+          ]
         },
         {
           "id": "notes",
           "name": "Notes",
-          "type": "STRING"
+          "type": "STRING",
+          "type:createUpdatePage": "TextArea",
+          "type:listPage": "HIDE"
         },
         {
           "id": "this_field_will_be_hidden",
           "name": "This field will be hidden in Create/Update/List page",
-          "type": "STRING"
+          "type": "STRING",
+          "type:createUpdatePage": "HIDE",
+          "type:listPage": "HIDE"
         }
       ],
       "large": true
