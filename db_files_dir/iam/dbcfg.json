@@ -44,7 +44,10 @@
           "type": "STRING",
           "description": "The role code of the user",
           "referenceTable": "roles",
-          "ui:createUpdatePage:enum": ["maintainer", "developer"]
+          "ui:createUpdatePage:enum": [
+            "maintainer",
+            "developer"
+          ]
         },
         {
           "id": "maleOrFemale",
@@ -52,7 +55,10 @@
           "type": "STRING",
           "description": "Male or Female of the user",
           "type:createUpdatePage": "RadioGroup",
-          "ui:createUpdatePage:enum": ["male", "female"]
+          "ui:createUpdatePage:enum": [
+            "male",
+            "female"
+          ]
         },
         {
           "id": "age",
@@ -110,7 +116,7 @@
         },
         {
           "id": "this_field_will_be_hidden",
-          "name": "This field will be hidden in Create/Update/List page",
+          "name": "This field will be hidden in Create/Update/List page2",
           "type": "STRING",
           "type:createUpdatePage": "HIDE",
           "type:listPage": "HIDE"
