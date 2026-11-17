@@ -23,36 +23,25 @@
           "name": "User ID",
           "type": "NUMBER",
           "primary": true,
-          "description": "An unique user ID",
-          "ui:listPage:isFilter": true,
-          "ui:listPage:randomView": [
-            "ImageLink",
-            "{\"url\":\"{{record.photos.[0]}}\",\"imgSrc\":\"{{record.photos.[0]}}\"}"
-          ]
+          "description": "An unique user ID"
         },
         {
           "id": "name",
           "name": "Name",
           "type": "STRING",
-          "description": "The name of the user",
-          "ui:listPage:isFilter": true,
-          "ui:createUpdatePage:placeholder": "Enter Name"
+          "description": "The name of the user"
         },
         {
           "id": "roleCode",
           "name": "Role Code",
           "type": "STRING",
-          "description": "The role code of the user",
-          "referenceTable": "roles",
-          "ui:createUpdatePage:enum": ["maintainer", "developer"]
+          "description": "The role code of the user"
         },
         {
           "id": "maleOrFemale",
           "name": "Male or Female",
           "type": "STRING",
-          "description": "Male or Female of the user",
-          "type:createUpdatePage": "RadioGroup",
-          "ui:createUpdatePage:enum": ["male", "female"]
+          "description": "Male or Female of the user"
         },
         {
           "id": "age",
@@ -67,25 +56,13 @@
         {
           "id": "tags",
           "name": "Tags",
-          "type": "STRING_ARRAY",
-          "ui:listPage:isFilter": true
+          "type": "STRING_ARRAY"
         },
         {
           "id": "photos",
           "name": "Photos",
           "type": "STRING_ARRAY",
-          "description": "The photos of the user",
-          "type:listPage": [
-            "ImageLinks",
-            "{\"imgs\":[{{#each record.photos}}{{#if @index}},{{/if}}{\"url\":\"{{this}}\",\"imgSrc\":\"{{#replace \".jpg\" \".jpg_400x400.jpg\"}}{{this}}{{/replace}}\"}{{/each}}],\"limit\":3}"
-          ],
-          "type:getPage": [
-            "PhotoList",
-            "{\"photos\":[{{#each record.photos}}{{#if @index}},{{/if}}{\"url\":\"{{this}}\",\"imgSrc\":\"{{this}}_400x400.jpg\"}{{/each}}]}"
-          ],
-          "type:createUpdatePage": "MultiLineInputBox",
-          "ui:listPage:isFilter": true,
-          "ui:listPage:isImageViewKey": true
+          "description": "The photos of the user"
         },
         {
           "id": "personal_website_name",
@@ -95,25 +72,17 @@
         {
           "id": "personal_website_url",
           "name": "Personal Website URL",
-          "type": "STRING",
-          "type:listPage": [
-            "Link",
-            "{\"href\":\"{{{record.personal_website_url}}}\",\"text\":\"{{record.personal_website_name}}\"}"
-          ]
+          "type": "STRING"
         },
         {
           "id": "notes",
           "name": "Notes",
-          "type": "STRING",
-          "type:createUpdatePage": "TextArea",
-          "type:listPage": "HIDE"
+          "type": "STRING"
         },
         {
           "id": "this_field_will_be_hidden",
           "name": "This field will be hidden in Create/Update/List page",
-          "type": "STRING",
-          "type:createUpdatePage": "HIDE",
-          "type:listPage": "HIDE"
+          "type": "STRING"
         }
       ],
       "large": true
